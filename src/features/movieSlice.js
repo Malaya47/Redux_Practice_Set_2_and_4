@@ -2,13 +2,15 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
-  const response = await axios.get(`https://427rn5-3000.csb.app/movies`);
+  const response = await axios.get(
+    `https://reduxtoolkit-movies-backend.vercel.app/movies`
+  );
   return response.data;
 });
 
 export const deleteMovie = createAsyncThunk("movie/deleteMovie", async (id) => {
   const response = await axios.delete(
-    `https://427rn5-3000.csb.app/movies/movie/${id}`
+    `https://reduxtoolkit-movies-backend.vercel.app/movies/movie/${id}`
   );
   return response.data;
 });
@@ -17,7 +19,7 @@ export const addMovie = createAsyncThunk(
   "movies/addMovie",
   async (movieData) => {
     const response = await axios.post(
-      `https://427rn5-3000.csb.app/movies`,
+      `https://reduxtoolkit-movies-backend.vercel.app/movies`,
       movieData
     );
     return response.data;
@@ -28,7 +30,7 @@ export const editMovie = createAsyncThunk(
   "movie/editMovie",
   async (updatedMovie) => {
     const response = await axios.put(
-      `https://427rn5-3000.csb.app/movies/movie/${updatedMovie._id}`,
+      `https://reduxtoolkit-movies-backend.vercel.app/movies/movie/${updatedMovie._id}`,
       updatedMovie
     );
     return response.data;
